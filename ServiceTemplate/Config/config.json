@@ -1,0 +1,278 @@
+{
+	"listeners": [
+		{
+			"address": "0.0.0.0",
+			"port": 8765,
+			"https": false
+		}
+	],
+	"custom_config": {
+		"service": {
+			"name": "TemplateService",
+			"app_token": "bcf9563b-2a26-4ad9-bb11-139bc9825968",
+			"service_guid": "2ca6fe87-0b02-4e89-b15e-a07cd8d95837",
+			"description": "VBD template Service",
+			"service_type": "Object"
+		},
+		"components": [
+			{
+				"type": "Storage",
+				"name": "PostgreSQL",
+				"description": "database stores data of building and others",
+				"parameters": {
+					"database_name": "buildings2",
+					"host": "10.222.3.84",
+					"port": 5432,
+					"user": "postgres",
+					"password": "postgres"
+				}
+			},
+			{
+				"type": "Error code",
+				"description": "Erorr code and it's description",
+				"parameters": {
+					"error": [
+						{
+							"name": "can not find verification code",
+							"code": 98,
+							"describe": "không tìm thấy mã xác thực"
+						},
+						{
+							"name": "you are not authorized to access",
+							"code": 99,
+							"describe": "không đủ quyền truy cập"
+						},
+						{
+							"name": "service not found",
+							"code": 100,
+							"describe": "không tìm thấy service"
+						},
+						{
+							"name": "login session has expired",
+							"code": 101,
+							"describe": "phiên đăng nhập đã hết hạn"
+						},
+						{
+							"name": "Sorry, unrecognized credentials",
+							"code": 102,
+							"describe": "không có quyền truy cập"
+						},
+						{
+							"name": "verification code is not available",
+							"code": 103,
+							"describe": "mã xác thực không có"
+						},
+						{
+							"name": "verification code has expired",
+							"code": 104,
+							"describe": "mã xác thực hết hạn"
+						},
+						{
+							"name": "verification code do not reach to available time",
+							"code": 105,
+							"describe": "mã xác thực chưa đến thời gian khả dụng"
+						},
+						{
+							"name": "invalid verification code",
+							"code": 106,
+							"describe": "mã xác thực không đúng"
+						},
+						{
+							"name": "invalid username",
+							"code": 107,
+							"describe": "username không đúng: username chỉ có thể chứa kí tự hoa , thường số và 1 kí tự đặc biệt"
+						},
+						{
+							"name": "invalid email",
+							"code": 108,
+							"describe": "email không đúng"
+						},
+						{
+							"name": "wrong password",
+							"code": 109,
+							"describe": "sai mật khẩu"
+						},
+						{
+							"name": "username not exist",
+							"code": 110,
+							"describe": "username không tồn tại"
+						},
+						{
+							"name": "email not exist",
+							"code": 111,
+							"describe": "email không tồn tại"
+						},
+						{
+							"name": "username already existed",
+							"code": 112,
+							"describe": "username đã tồn tại"
+						},
+						{
+							"name": "email already existed",
+							"code": 113,
+							"describe": "email đã tồn tại"
+						},
+						{
+							"name": "weak password",
+							"code": 114,
+							"describe": "mật khẩu yếu"
+						},
+						{
+							"name": "invalid password",
+							"code": 115,
+							"describe": "mật khẩu không đúng"
+						},
+						{
+							"name": "invalid body",
+							"code": 150,
+							"describe": "body sai, có trả về detail hoặc không"
+						},
+						{
+							"name": "cannot find key",
+							"code": 151,
+							"describe": "không tìm thấy key , có trả về key"
+						},
+						{
+							"name": "cannot find value",
+							"code": 152,
+							"describe": "không tìm thấy value , có trả về key"
+						},
+						{
+							"name": "invalid multipart body",
+							"code": 153,
+							"describe": "multipart body sai, có trả về detail hoặc không"
+						},
+						{
+							"name": "invalid entity in url",
+							"code": 154,
+							"describe": "url sai, có trả về entity hoặc không"
+						},
+						{
+							"name": "invalid numbers of request params",
+							"code": 155,
+							"describe": "sai số lượng biến truy vấn"
+						},
+						{
+							"name": "request successfully",
+							"code": 200,
+							"describe": "request thành công, có trả về data hoặc không"
+						},
+						{
+							"name": "request fail",
+							"code": 201,
+							"describe": "request thất bại, có trả về detail, key, value hoặc không"
+						},
+						{
+							"name": "request timeout",
+							"code": 203,
+							"describe": "request timeout"
+						},
+						{
+							"name": "cannot connect to database",
+							"code": 301,
+							"describe": "không thể kết nối đến cơ sở dữ liệu"
+						},
+						{
+							"name": "invalid database querying",
+							"code": 302,
+							"describe": "lỗi truy vấn cơ sở dữ liệu, có trả về detail"
+						},
+						{
+							"name": "cannot find data",
+							"code": 303,
+							"describe": "không tìm thấy dữ liệu"
+						},
+						{
+							"name": "invalid data",
+							"code": 304,
+							"describe": "dữ liệu lỗi"
+						}
+					]
+				}
+			}
+		]
+	},
+	"app": {
+		"number_of_threads": 0,
+		"session_timeout": 0,
+		"session_same_site": "Null",
+		"session_cookie_key": "JSESSIONID",
+		"session_max_age": -1,
+		"document_root": "./",
+		"file_types": [
+			"gif",
+			"png",
+			"jpg",
+			"js",
+			"css",
+			"html",
+			"ico",
+			"swf",
+			"xap",
+			"apk",
+			"cur",
+			"xml",
+			"webp",
+			"svg"
+		],
+		"mime": {},
+		"max_connections": 100000,
+		"max_connections_per_ip": 0,
+		"load_dynamic_views": false,
+		"dynamic_views_path": [
+			"./views"
+		],
+		"dynamic_views_output_path": "",
+		"json_parser_stack_limit": 1000,
+		"enable_unicode_escaping_in_json": true,
+		"float_precision_in_json": {
+			"precision": 0,
+			"precision_type": "significant"
+		},
+		"log": {
+			"use_spdlog": true,
+			"log_path": "./Log/",
+			"logfile_base_name": "logs",
+			"log_size_limit": 10000000,
+			"max_files": 10,
+			"log_level": "DEBUG",
+			"display_local_time": true
+		},
+		"run_as_daemon": false,
+		"handle_sig_term": true,
+		"relaunch_on_error": false,
+		"use_sendfile": true,
+		"use_gzip": true,
+		"use_brotli": false,
+		"static_files_cache_time": 5,
+		"idle_connection_timeout": 60,
+		"server_header_field": "",
+		"enable_server_header": true,
+		"enable_date_header": true,
+		"keepalive_requests": 0,
+		"pipelining_requests": 0,
+		"gzip_static": true,
+		"br_static": true,
+		"client_max_body_size": "400M",
+		"client_max_memory_body_size": "400M",
+		"client_max_websocket_message_size": "100M",
+		"reuse_port": false,
+		"enabled_compressed_request": true,
+		"enable_request_stream": false
+	},
+	"plugins": [
+		{
+			"name": "drogon::plugin::AccessLogger",
+			"dependencies": [],
+			"config": {
+				"use_spdlog": false,
+				"log_path": "",
+				"log_format": "",
+				"log_file": "access.log",
+				"log_size_limit": 0,
+				"use_local_time": true,
+				"log_index": 0
+			}
+		}
+	]
+}
