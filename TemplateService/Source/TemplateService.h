@@ -5,7 +5,7 @@
 
 #define SERVICE_NAME             L"TemplateService"
 // Displayed name of the service
-#define SERVICE_DISPLAY_NAME     TEXT("Template Service(C++)")
+#define SERVICE_DISPLAY_NAME     TEXT("TemplateService(C++)")
 // Service start options.
 #define SERVICE_START_TYPE       SERVICE_AUTO_START//SERVICE_DEMAND_START
 // List of service dependencies - "dep1\0dep2\0\0"

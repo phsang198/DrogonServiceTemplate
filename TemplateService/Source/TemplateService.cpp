@@ -13,7 +13,7 @@ void TemplateService::RunDrogon()
     
     auto conf = getConfig();
 
-    if (1) // test with all configs 
+    if (1) // test with all configs before running
     {
         RootService::RunDrogon();
     }
