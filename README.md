@@ -2,17 +2,17 @@
 
 # Hướng dẫn cài đặt
 
-## 1. Tải project
+## 1. Tải Repo
 
 Chạy `cmd` và thực hiện các bước sau:
 
-### Bước 1: Clone repo project
+### Bước 1: Clone repo
 
 ```sh
 git clone https://github.com/phsang198/DrogonServiceTemplate.git
 ```
 
-### Bước 2: Di chuyển vào thư mục project
+### Bước 2: Di chuyển vào thư mục repo
 
 ```sh
 cd /d DrogonServiceTemplate
