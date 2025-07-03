@@ -70,6 +70,13 @@
     <ClInclude Include="Source\Service\Model\CModel\CModel.h" />
     <ClInclude Include="Source\TemplateService.h" />
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Config\config.json">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">config/</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">config/</ExcludedFromBuild>
+    </CopyFileToFolders>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

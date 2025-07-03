@@ -10,8 +10,8 @@ namespace root::v1 //  /root/v1/resource
     {
     public:
         METHOD_LIST_BEGIN
-			METHOD_ADD(resource::get, "", Get , "SecurityMiddleware");                 // "" is the subresource
-            METHOD_ADD(resource::post, "", Post, "AuthFilter");
+			METHOD_ADD(resource::get, "", Get);                 // "" is the subresource
+            METHOD_ADD(resource::post, "", Post);
             METHOD_ADD(resource::put, "", Put);
             METHOD_ADD(resource::del, "", Delete);
         METHOD_LIST_END

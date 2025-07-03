@@ -264,6 +264,24 @@
 				"use_local_time": true,
 				"log_index": 0
 			}
+		},
+		{
+			"name": "drogon::plugin::GlobalFilters",
+			"dependencies": [],
+			"config": {
+				// filters: the list of global filter names.
+				"filters": [
+					"AuthFilter"
+				],
+				// exempt: exempt must be a string or string array, regular
+				"expressions" : "for",
+				// URLs that don't have to be filtered.
+				"exempt": [
+					"^/static/.\\.css",
+					"^/images/.",
+					"..."
+				]
+			}
 		}
 	]
 }
