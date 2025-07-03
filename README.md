@@ -41,7 +41,7 @@ replaceName.bat YourServiceName OldServiceName
 Truy cập link sau để tải thư viện:
 [Google Drive - DrogonServiceTemplate Libraries](https://drive.google.com/file/d/1NVjwfPkPqbAvN_Dh9m6MVeC1WhEJhhDb/view?usp=sharing)
 
-Sau đó giải nén vào thư mục `SolutionDir/Lib`
+Sau đó giải nén vào thư mục `ProjectDir/Lib`
 
 > ⚠️ **Lưu ý:** Cách này chỉ hỗ trợ các thư viện đã được cấu hình sẵn trong project. Nếu muốn thêm thư viện khác, bạn cần sử dụng `cmake` hoặc `vcpkg`.
 
