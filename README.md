@@ -41,7 +41,7 @@ replaceName.bat YourServiceName OldServiceName
 Truy cập link sau để tải thư viện:
 [Google Drive - DrogonServiceTemplate Libraries](https://drive.google.com/file/d/1NVjwfPkPqbAvN_Dh9m6MVeC1WhEJhhDb/view?usp=sharing)
 
-Sau đó giải nén vào thư mục `ProjectDir/Lib`
+Sau đó giải nén vào thư mục Lib trong ProjectDir `YourServiceName/Lib`
 
 > ⚠️ **Lưu ý:** Cách này chỉ hỗ trợ các thư viện đã được cấu hình sẵn trong project. Nếu muốn thêm thư viện khác, bạn cần sử dụng `cmake` hoặc `vcpkg`.
 
@@ -60,7 +60,7 @@ Dùng phần mềm hỗ trợ cấu hình thư viện tại:
 
 ### Bước 3: Cài service bằng file `installService.bat`
 
-Chạy file `installService.bat` trong thư mục `SolutionDir/X64/Release` với quyền **Administrator**
+Chạy file `installService.bat` trong SolutionDir `DrogonServiceTemplate/X64/Release` với quyền **Administrator**
 
 ### Bước 4: Kiểm tra API mẫu
 
