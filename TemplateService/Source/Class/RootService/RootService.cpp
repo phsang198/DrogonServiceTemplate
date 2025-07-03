@@ -1,10 +1,10 @@
 #pragma once
 #include "RootService.h"
+#include <SecurityMiddleware/SecurityMiddleware.h>
 #include <windows.h>
 #include <Tools/Tools.h>
 #include <ThreadPool/ThreadPool.h>
 #include <fmt/format.h>
-
 RootService* RootService::m_instance = nullptr;
 // Implementation
 RootService::RootService(LPCWSTR pszServiceName,
@@ -133,7 +133,6 @@ void RootService::initDrogon()
     APP.setLogPath(exePath + "/Log/", "logs", 100000000, 10);
 
 #endif
-
 }
 void RootService::StopDrogon()
 {

@@ -1,8 +1,14 @@
 ﻿#pragma once
 #include <drogon/HttpController.h>
+#include <drogon/HttpMiddleware.h>
+#include <drogon/HttpFilter.h>
+
 using namespace drogon;
 #define CONTROLLER HttpController
+#define MIDDLEWARE HttpMiddleware
+#define FILTER HttpFilter
 #define REQ HttpRequestPtr
+#define RES HttpResponsePtr
 #define RESPNew HttpResponse::newHttpResponse
 #define FUNC std::function<void(const HttpResponsePtr&)>
 

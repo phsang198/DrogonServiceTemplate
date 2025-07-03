@@ -51,6 +51,9 @@
     <ClCompile Include="Source\Service\Control\ClassControl\ClassControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Class\SecurityMiddleware\SecurityMiddleware.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Class\RootService\RootService.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Class\ThreadPool\ThreadPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Class\SecurityMiddleware\SecurityMiddleware.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

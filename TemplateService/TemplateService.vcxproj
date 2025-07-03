@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -29,6 +29,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Class\SecurityMiddleware\SecurityMiddleware.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Source\Class\ServiceBase\ServiceBase.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
@@ -56,6 +60,7 @@
     <ClInclude Include="Source\Class\Object\Object.h" />
     <ClInclude Include="Source\Class\RCode\RCode.h" />
     <ClInclude Include="Source\Class\RootService\RootService.h" />
+    <ClInclude Include="Source\Class\SecurityMiddleware\SecurityMiddleware.h" />
     <ClInclude Include="Source\Class\ServiceBase\ServiceBase.h" />
     <ClInclude Include="Source\Class\ServiceInstaller\ServiceInstaller.h" />
     <ClInclude Include="Source\Class\ThreadPool\ThreadPool.h" />
