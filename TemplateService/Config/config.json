@@ -229,15 +229,6 @@
 			"precision": 0,
 			"precision_type": "significant"
 		},
-		"log": {
-			"use_spdlog": true,
-			"log_path": "./Log/",
-			"logfile_base_name": "logs",
-			"log_size_limit": 10000000,
-			"max_files": 10,
-			"log_level": "DEBUG",
-			"display_local_time": true
-		},
 		"run_as_daemon": false,
 		"handle_sig_term": true,
 		"relaunch_on_error": false,

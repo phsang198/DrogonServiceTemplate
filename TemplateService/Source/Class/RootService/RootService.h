@@ -12,6 +12,8 @@ private:
     DWORD		         m_dwArgc;
     LPCWSTR* m_pszArgv;
     static RootService* m_instance;
+protected:
+    std::string config; 
 public:
     RootService(LPCWSTR pszServiceName,
         DWORD dwArgc,
@@ -37,6 +39,7 @@ protected:
     std::string getConfig();
     virtual void RunDrogon();
 private:
+    void loadConfig();
     virtual void initDrogon() final;
     virtual void StopDrogon() final;
 };

@@ -1,7 +1,9 @@
 #pragma once
 #include "RootService.h"
 #include <windows.h>
-#include "ThreadPool/ThreadPool.h"
+#include <Tools/Tools.h>
+#include <ThreadPool/ThreadPool.h>
+#include <fmt/format.h>
 
 RootService* RootService::m_instance = nullptr;
 // Implementation
@@ -17,17 +19,18 @@ RootService::RootService(LPCWSTR pszServiceName,
     m_pszArgv = pszArgv;
     m_instance = this;
 
-    initDrogon();
+    loadConfig(); 
 }
 
 RootService::~RootService()
 {
-    StopDrogon();
+    //StopDrogon();
 }
 void RootService::OnStartDebug(DWORD dwArgc, PSTR* pszArgv)
 {
     RunDrogon();
 }
+
 void RootService::OnStart(DWORD dwArgc, PSTR* pszArgv)
 {
     // Write to event log
@@ -35,9 +38,8 @@ void RootService::OnStart(DWORD dwArgc, PSTR* pszArgv)
 
     try
     {
-        RunDrogon(); 
-        //CThreadPool::QueueUserWorkItem(&RootService::RunDrogon, this);
-
+        CThreadPool::QueueUserWorkItem(&RootService::RunDrogon, this);
+        Sleep(1000); 
         WriteEventLogEntry(L"Service started successfully", EVENTLOG_INFORMATION_TYPE);
     }
     catch (const std::exception& e)
@@ -65,6 +67,7 @@ void RootService::OnPause()
     // Note: Drogon doesn't have built-in pause/resume, 
     // you might need to implement custom logic here
 }
+
 BOOL RootService::ConsoleCtrlHandler(DWORD ctrlType)
 {
     switch (ctrlType)
@@ -78,19 +81,33 @@ BOOL RootService::ConsoleCtrlHandler(DWORD ctrlType)
         return FALSE;
     }
 }
+
+void RootService::loadConfig()
+{
+    config = Tools::readFile(Tools::getExePath() + "/Config/config.json");
+}
+
 std::string RootService::getConfig()
 {
-    return APP.getCustomConfig().toStyledString();
+    return config; 
 }
 void RootService::RunDrogon()
 {
     try
     {
-        drogon::app().getLoop()->runAfter(1, [] {
-            LOG_INFO << "Start success!";
-            });
+        initDrogon(); 
 
-        APP.run();
+        WriteEventLogEntry(L"Drogon inited !", EVENTLOG_INFORMATION_TYPE);
+
+        APP.getLoop()->runAfter(1, [&]() {
+
+            auto servicename = Tools::LPCWSTRToString(GetName());
+            LOG_INFO << fmt::format("{} is running at http://{}\n", servicename, APP.getListeners().at(0).toIpPort());
+        });
+
+        APP.run(); 
+
+      
     }
     catch (const std::exception& e)
     {
@@ -101,20 +118,28 @@ void RootService::RunDrogon()
     }
 
 }
+
 void RootService::initDrogon()
 {
-    WriteEventLogEntry(L"Service initing...", EVENTLOG_INFORMATION_TYPE);
-
-
     SetConsoleCtrlHandler(ConsoleCtrlHandler, TRUE);
 
-    APP.loadConfigFile("./Config/config.json");
+    std::string exePath = Tools::getExePath(); 
 
+    APP.loadConfigFile(exePath + "/Config/config.json");
 
-    WriteEventLogEntry(L"Service inited !", EVENTLOG_INFORMATION_TYPE);
+#ifdef _DEBUG
+    APP.setLogPath("");
+#elif NDEBUG
+    APP.setLogPath(exePath + "/Log/", "logs", 100000000, 10);
+
+#endif
 
 }
 void RootService::StopDrogon()
 {
+    WriteEventLogEntry(L"Drogon quiting...", EVENTLOG_INFORMATION_TYPE);
+
     APP.quit();
+
+    WriteEventLogEntry(L"Drogon quited !", EVENTLOG_INFORMATION_TYPE);
 }
