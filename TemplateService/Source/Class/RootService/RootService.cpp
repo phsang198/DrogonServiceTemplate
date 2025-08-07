@@ -107,6 +107,8 @@ void RootService::RunDrogon()
 
         APP.run(); 
 
+        LOG_INFO << "APP.run() exited. Cleaning up Drogon service.";
+        WriteEventLogEntry(L"Drogon stopped!", EVENTLOG_INFORMATION_TYPE);
       
     }
     catch (const std::exception& e)
