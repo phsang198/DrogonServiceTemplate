@@ -9,6 +9,8 @@ namespace root::v1 //  /root/v1/resource
     class resource : public CONTROLLER<resource>
     {
     public:
+        ~resource() override {}
+    public:
         METHOD_LIST_BEGIN
 			METHOD_ADD(resource::get, "", Get);                 // "" is the subresource
             METHOD_ADD(resource::post, "", Post);
