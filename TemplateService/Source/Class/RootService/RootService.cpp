@@ -24,7 +24,7 @@ RootService::RootService(LPCWSTR pszServiceName,
 
 RootService::~RootService()
 {
-    //StopDrogon();
+    StopDrogon();
 }
 void RootService::OnStartDebug(DWORD dwArgc, PSTR* pszArgv)
 {
